@@ -1,0 +1,24 @@
+﻿
+@using Lab4_MVC.Models;
+@using Lab4_MVC.DAL;
+@using Lab4_MVC.Helpers;
+
+@Model Employee;
+
+<h3>ya welcome ya welcome</h3>
+
+@{
+    ModelContext ctx = new ModelContext();
+    var employees = ctx.Employees.ToList();
+}
+
+@Html.UlFor(employees)
+
+<div class="jumbotron">
+    
+    <h2>Ramadan Kareem :)</h2>
+
+    @Html.ActionLink("Go to form", "Contact", "Home", null, new { @class = "btn btn-danger" })
+</div>
+
+

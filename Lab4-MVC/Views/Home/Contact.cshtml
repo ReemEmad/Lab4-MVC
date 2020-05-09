@@ -1,0 +1,62 @@
+﻿@using Lab4_MVC.Models;
+
+@model Employee
+
+
+<!Doctype html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .input-validation-error {
+            border: 1px solid red;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" class="container">
+        <div>
+         
+        </div>
+        <h1>Add Employee</h1>
+        First name:@Html.TextBoxFor(m => m.name, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.name)
+        <br />
+
+        Email :@Html.TextBoxFor(m => m.email, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.email)
+        <br />
+
+        Salary:@Html.TextBoxFor(m => m.salary, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.salary)
+        <br />
+
+        Address :@Html.TextBoxFor(m => m.address, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.address)
+        <br />
+
+        <input class="btn btn-success" type="submit" value="Add">
+
+    </form>
+
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script>
+            function Ajax() {
+                $.ajax({
+                    url: "/Home/TestActionResult",
+                    type: "Get",
+                    success: function (res, status, xhr) {
+                        console.log(res);
+                    },
+                    error: function (xhr, status, err) {
+                        console.log(err);
+                    }
+                });
+
+            }
+        </script>*@
+
+  
+</body>
+</html>

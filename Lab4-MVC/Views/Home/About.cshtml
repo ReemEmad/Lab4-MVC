@@ -1,0 +1,64 @@
+﻿@using Lab4_MVC.Models
+@model  List<Employee>
+
+
+<div class="container">
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (Employee emp in Model)
+                {
+                    @Html.Partial("_PartianlEmployees",emp);
+
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            No Employees
+        </div>
+    }
+
+    @section Scripts
+        {
+        <script>
+            function confirmDelete(id) {
+                let res = confirm("Are you sure you want to delete?");
+                if (res) {
+                    $.ajax({
+                        url: `Delete/${id}`,
+                        type: "POST",
+                        success: function (response) {
+                            if (response) {
+                                let tr = $(`#${id}`);
+                               
+                                tr.remove();
+                            }
+
+                        }
+                        //error: function (xhr, status, err) {
+                        //    console.log(err);
+                        //}
+                    })
+                }
+            }
+        </script>
+        }
+</div>
+
+
+

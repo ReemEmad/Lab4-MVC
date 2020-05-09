@@ -1,0 +1,14 @@
+﻿@using Lab4_MVC.Models
+@model  Employee
+
+
+    <tr id = "@Model.id">
+        <td>@Model.name</td>
+        <td>@Model.email</td>
+        <td>@Model.salary</td>
+        <td>@Model.address</td>
+
+        <td>
+            @Html.Partial("_ControlsPartial", Model.id)
+        </td>
+    </tr>
